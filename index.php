@@ -1,49 +1,34 @@
 <?php
 
+// để khai báo class trừu tượng sử dụng từ khóa abstract trước tên class
+abstract class Dienthoai {
+
+    // để khai báo 1 phương thức trừu tượng sử dụng abstract trước từ khoa function
+    // phương thức trừu tượng là 1 phương thức không có nội dung
+    // không có { nội dung }
+    // là phương thức rỗng
+    abstract public function ngheCuocGoi();
+
+    abstract public function goiDien();
+
+}
+
+// class con kế thừa từ class trừu tượng
+// phải viết nội dung bên trong cho các phương thức abstract ở class cha
+class Dienthoaithongminh extends Dienthoai {
 
 
-class Student {
-
-    // gán giá trị mặc định cho thuộc tính $name
-    public $name = 'demo họ tên';
-
-    // thêm thuộc tính tĩnh
-    public static $location = 'việt nam';
-
-
-    // phương thức tĩnh
-    public static function demo1() {
+   public function ngheCuocGoi() {
         echo '<br>' . __METHOD__;
-        // không được sử dụng từ khóa $this trong phương thức tĩnh
-        // nếu sử dụng thì sẽ bị lỗi
-        echo '<br> truy cập đến phương thức thông thường từ bên trong phương thức tĩnh';
-        $self = new self();
-        // truy cập thuộc tính bình thường
-        echo '<br>' . $self->name;
-        // truy cập phương thức bình thức
-        echo '<br>' . $self->demo2();
-
-        // truy cập đến thuộc tính tĩnh
-        echo '<br> truy cập đến thuộc tính tĩnh';
-        echo '<br>' . self::$location;
-
     }
 
-    // phương thức bình thường
-    public function demo2() {
+    public function goiDien()
+    {
         echo '<br>' . __METHOD__;
-        echo '<br>' . $this->name;
     }
 
 }
 
-// khởi tạo đối tượng từ class
-$tuan = new Student();
-// muốn gọi đến phương thức bình thường
-$tuan->demo2();
-
-// phương thức tĩnh có ưu điểm là có thể gọi đến phương thức tĩnh màn không
-// cần phải khởi tạo đối tượng
-// cách gọi TenClass::TenPhuongthucTinh
-Student::demo1();
+// mục đích của class trừu tượng là ép buộc các class con kế thừa từ nó
+// phải viết code thực thi bên trong cho các phương thức trửu tượng của class abstract cha
 ?>
