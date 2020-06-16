@@ -46,3 +46,4 @@ $tuan->demo2();
 // cần phải khởi tạo đối tượng
 // cách gọi TenClass::TenPhuongthucTinh
 Student::demo1();
+?>
